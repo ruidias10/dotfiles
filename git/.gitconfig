@@ -1,0 +1,8 @@
+[user]
+	name = Rui Dias
+	email = rui.dias10@gmail.com
+[core]
+	editor = nvim
+	pager = cat
+[init]
+	defaultbranch = main

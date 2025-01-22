@@ -1,0 +1,85 @@
+{
+  "window.zoomLevel": 1.1,
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.colorCustomizations": {},
+  "symbols.hidesExplorerArrows": false,
+  "workbench.iconTheme": "symbols",
+  "editor.fontFamily": "'CaskaydiaCove Nerd Font Mono','JetBrainsMono NFM','Droid Sans Mono', 'monospace', monospace",
+  "editor.fontSize": 15,
+  "editor.lineHeight": 1.8,
+  "editor.rulers": [
+      80,
+      120
+  ],
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.renderLineHighlight": "none",
+  "editor.fontLigatures": true,
+  "workbench.editor.labelFormat": "short",
+  "explorer.compactFolders": false,
+  "editor.semanticHighlighting.enabled": false,
+  "breadcrumbs.enabled": false,
+  "workbench.sideBar.location": "right",
+  "workbench.activityBar.location": "default",
+  "editor.minimap.enabled": false,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "auto",
+  "editor.scrollbar.verticalScrollbarSize": 8,
+  "workbench.statusBar.visible": true,
+  "apc.electron": {
+      "titleBarStyle": "hiddenInset",
+      "trafficLightPosition": {
+          "x": 11,
+          "y": 10
+      }
+  },
+  "apc.header": {
+      "height": 45,
+      "fontSize": 13
+  },
+  "apc.font.family": "JetBrainsMono Nerd Font",
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "workbench.tree.enableStickyScroll": false,
+  "apc.stylesheet": {
+      ".title-label > h2": "display:none!important",
+      ".nosidebar .inline-tabs-placeholder": "width:75px!important",
+      ".pane-body": "padding:8px!important",
+      ".pane-header": "padding:0px 8px!important",
+      ".monaco-list-row": "border-radius:4px!important",
+      ".monaco-workbench .monaco-list:not(.element-focused):focus:before": "display:none!important",
+      ".monaco-pane-view .pane>.pane-header h3.title": "color:var(--vscode-textLink-foreground)",
+      ".monaco-icon-label>.monaco-icon-label-container>.monaco-icon-name-container>.label-name": "color:var(--vscode-textLink-foreground)",
+  },
+  "apc.listRow": {
+    "height": 25,
+  },
+
+  "window.titleBarStyle": "native",
+  "explorer.fileNesting.enabled": true,
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font Mono",
+  "terminal.integrated.lineHeight": 1.4,
+  "window.density.editorTabHeight": "compact",
+
+  "editor.tabSize": 2,
+  "editor.stickyScroll.enabled": false,
+  "editor.wordWrap": "off",
+  
+  "github.copilot.editor.enableAutoCompletions": true,
+
+  "editor.renderControlCharacters": true,
+  "editor.renderWhitespace": "all",
+  "editor.inlineSuggest.showToolbar": "always",
+  "editor.largeFileOptimizations": false,
+  "editor.inlineSuggest.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+      "editor.formatOnType": true
+  },
+  "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+}

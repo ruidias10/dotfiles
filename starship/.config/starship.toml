@@ -1,0 +1,275 @@
+# "$schema" = 'https://starship.rs/config-schema.json'
+
+# add_newline = true
+
+# command_timeout = 3600000
+
+# scan_timeout = 500
+
+
+# format = """
+# (surface0)\
+# $os\
+# $username\
+# (fg:surface0)\
+# $directory\
+# (fg:peach)\
+# $git_branch\
+# $git_status\
+# (fg:green)\
+# $c\
+# $rust\
+# $golang\
+# $nodejs\
+# $php\
+# $java\
+# $kotlin\
+# $haskell\
+# $python\
+# (fg:teal)\
+# $docker_context\
+# (fg:blue)\
+# (fg:purple)\
+# $line_break$character"""
+
+# palette = 'catppuccin_mocha'
+
+# [palettes.gruvbox_dark]
+# color_fg0 = '#fbf1c7'
+# color_bg1 = '#3c3836'
+# color_bg3 = '#665c54'
+# color_blue = '#458588'
+# color_aqua = '#689d6a'
+# color_green = '#98971a'
+# color_orange = '#d65d0e'
+# color_purple = '#b16286'
+# color_red = '#cc241d'
+# color_yellow = '#d79921'
+
+# [palettes.catppuccin_mocha]
+# rosewater = "#f5e0dc"
+# flamingo = "#f2cdcd"
+# pink = "#f5c2e7"
+# orange = "#cba6f7"
+# red = "#f38ba8"
+# maroon = "#eba0ac"
+# peach = "#fab387"
+# yellow = "#f9e2af"
+# green = "#a6e3a1"
+# teal = "#94e2d5"
+# sky = "#89dceb"
+# sapphire = "#74c7ec"
+# blue = "#89b4fa"
+# lavender = "#b4befe"
+# text = "#cdd6f4"
+# subtext1 = "#bac2de"
+# subtext0 = "#a6adc8"
+# overlay2 = "#9399b2"
+# overlay1 = "#7f849c"
+# overlay0 = "#6c7086"
+# surface2 = "#585b70"
+# surface1 = "#45475a"
+# surface0 = "#313244"
+# base = "#1e1e2e"
+# mantle = "#181825"
+# crust = "#11111b"
+
+# [os]
+# disabled = false
+# style = "fg:text"
+
+# [os.symbols]
+# Windows = "󰍲"
+# Ubuntu = "󰕈"
+# SUSE = ""
+# Raspbian = "󰐿"
+# Mint = "󰣭"
+# Macos = ""
+# Manjaro = ""
+# Linux = "󰌽"
+# Gentoo = "󰣨"
+# Fedora = "󰣛"
+# Alpine = ""
+# Amazon = ""
+# Android = ""
+# Arch = "󰣇"
+# Artix = "󰣇"
+# CentOS = ""
+# Debian = "󰣚"
+# Redhat = "󱄛"
+# RedHatEnterprise = "󱄛"
+
+# [username]
+# show_always = true
+# style_user = "fg:#cba6f7"
+# style_root = "fg:#cba6f7"
+# format = '[ $user ]($style)'
+
+# [directory]
+# style = "fg:#fab387"
+# format = "[ $path ]($style)"
+# truncation_length = 3
+# truncation_symbol = "…/"
+
+# [directory.substitutions]
+# "Documents" = "󰈙 "
+# "Downloads" = " "
+# "Music" = "󰝚 "
+# "Pictures" = " "
+# "Developer" = "󰲋 "
+
+# [git_branch]
+# symbol = ""
+# style = ""
+# format = '[[ $symbol $branch ](fg:#a6adc8)]($style)'
+
+# [git_status]
+# style = ""
+# format = '[[($all_status$ahead_behind )](fg:#a6adc8)]($style)'
+
+# [nodejs]
+# symbol = ""
+# style = ""
+# format = '[[ $symbol( $version) ](fg:#a6adc8)]($style)'
+
+# [c]
+# symbol = " "
+# style = ""
+# format = '[[ $symbol( $version) ](fg:#fab387)]($style)'
+
+# [rust]
+# symbol = ""
+# style = ""
+# format = '[[ $symbol( $version) ](fg:#fab387)]($style)'
+
+# [golang]
+# symbol = ""
+# style = ""
+# format = '[[ $symbol( $version) ](fg:#fab387)]($style)'
+
+# [php]
+# symbol = ""
+# style = ""
+# format = '[[ $symbol( $version) ](fg:#fab387)]($style)'
+
+# [java]
+# symbol = " "
+# style = ""
+# format = '[[ $symbol( $version) ](fg:#fab387)]($style)'
+
+# [kotlin]
+# symbol = ""
+# style = ""
+# format = '[[ $symbol( $version) ](fg:#fab387)]($style)'
+
+# [haskell]
+# symbol = ""
+# style = ""
+# format = '[[ $symbol( $version) ](fg:#fab387)]($style)'
+
+# [python]
+# symbol = ""
+# style = ""
+# format = '[[ $symbol( $version) ](fg:#fab387)]($style)'
+
+# [docker_context]
+# symbol = ""
+# style = ""
+# format = '[[ $symbol( $context) ](fg:#83a598)]($style)'
+
+# [time]
+# disabled = false
+# time_format = "%R"
+# style = ""
+# format = '[[  $time ](fg:#fab387)]($style)'
+
+# [line_break]
+# disabled = false
+
+# [cmd_duration]
+# min_time = 5_000
+# format = 'took [$duration]($style)'
+# style = "bold #F0C674"
+
+# [character]
+# disabled = false
+# success_symbol = '[󰣇](bold fg:green)'
+# error_symbol = '[󰣇](bold fg:red)'
+# vimcmd_symbol = '[󰣇](bold fg:creen)'
+# vimcmd_replace_one_symbol = '[󰣇](bold fg:purple)'
+# vimcmd_replace_symbol = '[󰣇](bold fg:purple)'
+# vimcmd_visual_symbol = '[󰣇](bold fg:lavender)'
+
+
+
+
+
+
+
+
+# .config/starship.toml
+# $ starship print-config | grep timeout
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Timeout for commands executed by starship (in milliseconds).
+command_timeout = 3600000
+
+# Ignore global command_timeout setting and keep running external commands, no matter how long they take.
+#ignore_timeout = true
+
+# Timeout for starship to scan files (in milliseconds).
+scan_timeout = 500
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[character]
+error_symbol = "[λ](bold #A54242)"
+success_symbol = "[λ](bold #f8f8f2)"
+
+[cmd_duration]
+min_time = 5_000
+format = 'took [$duration]($style)'
+style = "bold #F0C674"
+
+[directory]
+style = "bold #fab387"
+truncation_length = 2
+
+[git_branch]
+style = "bold #8a8c95"
+
+[git_status]
+style = "bold #8a8c95"
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = '[🍒 PICKING](bold red)'
+
+[git_metrics]
+added_style = 'bold blue'
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+[hostname]
+style = "bold #A54242"
+
+[docker_context]
+format = 'via [🐋 $context](blue bold) '
+
+[username]
+style_user = 'white bold'
+style_root = 'black bold'
+format = '[$user]($style) '
+disabled = false
+show_always = true
+
+[os]
+format = "on [($name)]($style) "
+style = "bold #cba6f7"
+disabled = false
