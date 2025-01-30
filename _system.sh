@@ -33,7 +33,7 @@ function die {
 
 
 ### Run Tmux
-#### ./_system.sh runtmux --workspace Laravel --workdir /home/ruidias/dotfiles/lixo
+#### ./_system.sh runtmux --workspace Laravel --workdir /home/ruidias/Workspace/lixo/laravel
 runtmux() {
     echo "Run Tmux"
 
@@ -57,31 +57,46 @@ runtmux() {
     echo "Workspace: $workspace";
     echo "Workdir: $workdir";
 
-    SESSION="Wokspace"
+    # Verifica se o diretório existe. Se não existir, cria.
+    if [ ! -d "$workdir" ]; then
+        echo "Diretório $workdir não existe. Criando..."
+        mkdir -p "$workdir"
+        if [ $? -ne 0 ]; then
+            die "Falha ao criar o diretório $workdir"
+        fi
+        echo "Diretório $workdir criado com sucesso."
+
+        # Inicializa um repositório Git no diretório criado
+        echo "Inicializando repositório Git em $workdir..."
+        git -C "$workdir" init
+        if [ $? -ne 0 ]; then
+            die "Falha ao inicializar o repositório Git em $workdir"
+        fi
+        echo "Repositório Git inicializado com sucesso."
+    fi
+
+    SESSION="$workspace"
     SESSIONEXISTS=$(tmux list-sessions | grep $SESSION)
 
     if [ "$SESSIONEXISTS" = "" ]
     then
-    tmux new-session -s "$SESSION" -n "System  " -d
-    #tmux send-keys -t "$SESSION" 'bashtop' C-m
-    #tmux split-window -h 'nvtop'
-    
-    #tmux send-keys " # screen 1, pane 1" C-m
-    #tmux split-window -h -c /home/ruidias/
-    #tmux split-window -h 'top'
-    
-    tmux new-window -t "$SESSION:2" -n "Docker "
-    tmux send-keys -t "$SESSION" 'lazydocker' C-m
+        # Cria uma nova sessão Tmux com o nome do workspace e define o diretório de trabalho
+        tmux new-session -s "$SESSION" -n "System  " -d -c "$workdir"
+        
+        # Cria uma nova janela para Docker
+        tmux new-window -t "$SESSION:2" -n "Docker " -c "$workdir"
+        tmux send-keys -t "$SESSION:2" 'lazydocker' C-m
 
-    tmux new-window -t "$SESSION:3" -n "Git "
-    tmux send-keys -t -c "/home/ruidias/dotfiles/lixo" C-m
-    tmux send-keys -t -h "lazygit" C-m
+        # Cria uma nova janela para Git
+        tmux new-window -t "$SESSION:3" -n "Git " -c "$workdir"
+        tmux send-keys -t "$SESSION:3" 'lazygit' C-m
 
-
-    tmux select-window -t "$SESSION:1"
-    tmux -2 attach-session -t "$SESSION"
+        # Seleciona a primeira janela e anexa a sessão
+        tmux select-window -t "$SESSION:1"
+        tmux -2 attach-session -t "$SESSION"
     else
-    tmux attach-session -t "$SESSION"
+        # Se a sessão já existe, apenas anexa a ela
+        tmux attach-session -t "$SESSION"
     fi    
 }
 
@@ -157,6 +172,7 @@ install() {
     yay -S hyprshot nvitop
     yay -S usql
     yay -S google-chrome
+    yay -S visual-studio-code-bin
 
     # tmux
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -201,6 +217,7 @@ install() {
     stow git
     stow vscode
     stow lsd
+    stow nvim
 
     # Confif bat
     bat cache --build
