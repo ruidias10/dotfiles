@@ -544,6 +544,22 @@ setupgit() {
     done <<< $(git config --list)
 }
 
+hypr() {
+    sudo pacman -Syu pacman-contrib
+    sudo pacman -Syu hyprland
+    sudo pacman -Syu hyprpaper
+    sudo pacman -Syu hyprpicker
+    sudo pacman -Syu hyprlock
+    sudo pacman -Syu waybar
+    sudo pacman -Syu swaync
+    sudo pacman -Syu kitty
+    sudo pacman -Syu wofi
+    sudo pacman -Syu lsd 
+    sudo pacman -Syu yazi
+    
+    hyprctl dispatch exit
+}
+
 
 # Verificar o parâmetro usando case
 case $1 in
@@ -555,6 +571,9 @@ case $1 in
         ;;
     install)
         install
+        ;;
+    hypr)
+        hypr
         ;;
     clean)
         clean
@@ -572,7 +591,7 @@ case $1 in
         runtmux "$@"
         ;;        
     *)
-        echo "Uso: ./update.sh [help|update|install|clean|backup|setupvscode|setupgit|runtmux]"
+        echo "Uso: ./update.sh [help|update|install|clean|backup|setupvscode|setupgit|runtmux|hypr]"
         exit 1
         ;;
 esac
