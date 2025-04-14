@@ -6,6 +6,7 @@ export SUDO_EDITOR="$EDITOR"
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -113,7 +114,6 @@ source <(fzf --zsh)
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
 
 # zsh-syntax-highlighting
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
@@ -138,10 +138,10 @@ function y() {
 
 # alias
 alias cat="bat"
-alias bf="yazi"
+#alias bf="yazi"
 alias top="bashtop"
 alias ntop="nvitop"
-alias tmx="tmuxinator"
+#alias tmx="tmuxinator"
 alias gitlog="git log --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'"
 
 export NVM_DIR="$HOME/.nvm"

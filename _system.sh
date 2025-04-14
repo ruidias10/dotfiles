@@ -135,12 +135,7 @@ install() {
     sudo pacman -S ttf-font-awesome
     sudo pacman -S zsh-syntax-highlighting 
     sudo pacman -S zsh-autosuggestions
-    sudo pacman -S fzf 
-    sudo pacman -S zoxide 
-    sudo pacman -S ripgrep 
-    sudo pacman -S fd 
     sudo pacman -S bat 
-    sudo pacman -S poppler
     sudo pacman -S bashtop 
     sudo pacman -S lazygit 
     sudo pacman -S neofetch 
@@ -155,6 +150,10 @@ install() {
     sudo pacman -S mariadb-clients 
     sudo pacman -S fuse-exfat
     sudo pacman -S exfat-utils
+    sudo pacman -S lm_sensors
+    sudo sensors-detect 
+    sudo pacman -S amd-ucode
+    sudo pacman -S timeshift
 
     # yay
     yay -S ttf-cascadia-code-nerd
@@ -236,6 +235,74 @@ install() {
 
     # SSH Key
     ssh-keygen -t ed25519 -C "rui.dias10@gmail.com"
+
+    # Ollama
+    curl -fsSL https://ollama.com/install.sh | sh
+
+    # MariaDB
+    sudo pacman -Syu mariadb
+    sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+    sudo systemctl enable --now mariadb
+    sudo mariadb-secure-installation
+    # user: root
+    # password: ruidias
+    # mariadb -u root -p
+
+    # Apache
+    sudo pacman -S apache
+    sudo systemctl start httpd
+    sudo systemctl enable httpd
+
+    sudo mkdir -p /var/www/html
+    sudo chown -R http:http /var/www/html
+    sudo chmod -R 755 /var/www/html
+
+    sudo nano /etc/httpd/conf/httpd.conf
+    # DocumentRoot "/var/www/html"
+    #
+    # <Directory "/var/www/html">
+    # Options Indexes FollowSymLinks
+    # AllowOverride All
+    # Require all granted
+    # </Directory>
+    sudo systemctl restart httpd
+
+    sudo usermod -aG http $USER
+    sudo chown -R ruidias:http /var/www/html
+    sudo chmod -R 775 /var/www/html
+
+    #sudo groupadd webdev
+    #sudo usermod -aG webdev seu_usuario
+    #sudo usermod -aG webdev http
+    #sudo chown -R seu_usuario:webdev /var/www/html/uploads
+    #sudo chmod -R 775 /var/www/html/uploads
+
+    sudo pacman -S php php-apache
+    sudo nano /etc/httpd/conf/httpd.conf    
+    # Comente ou remova a linha que carrega o módulo mpm_event, pois ele é incompatível com o módulo PHP:
+    # #LoadModule mpm_event_module modules/mod_mpm_event.so
+
+    # Descomente a linha que carrega o módulo mpm_prefork:
+    # LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+
+    # Adicione as seguintes linhas ao final do arquivo para integrar o PHP ao Apache:
+    # LoadModule php_module modules/libphp.so
+    # AddHandler php-script .php
+    # Include conf/extra/php_module.conf
+
+    sudo systemctl restart httpd
+
+
+    # Python
+    python --version
+    sudo pacman -S python
+
+    curl -sSL https://install.python-poetry.org | python3 -
+
+    nano ~/.zshrc
+    # export PATH="$HOME/.local/bin:$PATH"
+    source ~/.zshrc
+    poetry --version
 }
 
 
