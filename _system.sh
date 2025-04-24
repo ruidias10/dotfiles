@@ -154,6 +154,8 @@ install() {
     sudo sensors-detect 
     sudo pacman -S amd-ucode
     sudo pacman -S timeshift
+    sudo pacman -S fuse2
+    sudo pacman -S alacritty
 
     # yay
     yay -S ttf-cascadia-code-nerd
@@ -217,6 +219,7 @@ install() {
     stow vscode
     stow lsd
     stow nvim
+    stow alacritty
 
     # Confif bat
     bat cache --build
@@ -232,6 +235,16 @@ install() {
     # Instal PHP
     sudo pacman -S php composer
     sudo pacman -S php-mysql php-openssl php-curl php-mbstring php-xml
+    sudo pacman -S php-sqlite
+    sudo pacman -S php-fpm
+
+    sudo nano /etc/php/php.ini
+    # Descomentar 
+    # extension=pdo_sqlite
+    # extension=sqlite3
+
+    sudo systemctl restart php-fpm
+    sudo systemctl restart php-fpm
 
     # SSH Key
     ssh-keygen -t ed25519 -C "rui.dias10@gmail.com"
