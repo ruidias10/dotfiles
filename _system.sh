@@ -156,8 +156,14 @@ install() {
     sudo pacman -S timeshift
     sudo pacman -S fuse2
     sudo pacman -S alacritty
+    sudo pacman -S nvidia-utils
+    sudo pacman -S glxinfo
+    sudo pacman -S mesa-demos
+    sudo pacman -S vlc
+    sudo pacman -S gstreamer gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav ffmpeg libdvdread libdvdnav libdvdcss
 
     # yay
+    yay -S libdvdcss
     yay -S ttf-cascadia-code-nerd
     yay -S tmux 
     yay -S tmuxinator 
